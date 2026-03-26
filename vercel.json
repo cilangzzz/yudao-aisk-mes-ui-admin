@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm build:tdesign",
+  "buildCommand": "pnpm run build --filter=@vben/web-tdesign",
   "outputDirectory": "apps/web-tdesign/dist",
   "installCommand": "pnpm install"
 }
