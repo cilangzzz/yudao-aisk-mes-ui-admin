@@ -1,5 +1,7 @@
 {
-  "buildCommand": "pnpm run build --filter=@vben/web-tdesign",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm -F @vben/web-tdesign build",
   "outputDirectory": "apps/web-tdesign/dist",
-  "installCommand": "pnpm install"
+  "installCommand": "pnpm install",
+  "framework": null
 }
