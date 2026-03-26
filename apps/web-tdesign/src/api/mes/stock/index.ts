@@ -50,6 +50,13 @@ export namespace MesStockApi {
     safetyQty?: number;
     unit?: string;
   }
+
+  /** 库存调整请求 */
+  export interface AdjustRequest {
+    id: number;
+    qty: number;
+    remark?: string;
+  }
 }
 
 /** 获得线边库存分页 */
@@ -84,4 +91,9 @@ export function consumeStock(data: MesStockApi.ConsumeRequest) {
 /** 线边物料入库 */
 export function stockIn(data: MesStockApi.StockInRequest) {
   return requestClient.post('/mes/stock/in', data);
+}
+
+/** 库存调整 */
+export function adjustStock(data: MesStockApi.AdjustRequest) {
+  return requestClient.put('/mes/stock/adjust', data);
 }
