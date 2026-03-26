@@ -94,3 +94,8 @@ export function deactivateRouting(id: number) {
 export function copyRouting(id: number) {
   return requestClient.post(`/mes/routing/copy?id=${id}`);
 }
+
+/** 获得工艺路线精简列表 */
+export function getRoutingSimpleList() {
+  return requestClient.get<MesRoutingApi.Routing[]>('/mes/routing/simple-list');
+}
