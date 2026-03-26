@@ -2,7 +2,6 @@ import type { VbenFormSchema } from '#/adapter/form';
 import type { VxeTableGridOptions } from '#/adapter/vxe-table';
 
 import { getProductSimpleList } from '#/api/mes/basic/product';
-import { getSimpleWorkstationList } from '#/api/mes/config/workstation';
 
 /** 工艺路线状态选项 */
 export const ROUTING_STATUS_OPTIONS = [
