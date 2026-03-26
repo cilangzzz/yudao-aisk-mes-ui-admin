@@ -29,6 +29,11 @@ export function getShiftList(params?: any) {
   });
 }
 
+/** 查询班次精简列表 */
+export function getSimpleShiftList() {
+  return requestClient.get<MesShiftApi.Shift[]>('/mes/shift/simple-list');
+}
+
 /** 查询班次详情 */
 export function getShift(id: number) {
   return requestClient.get<MesShiftApi.Shift>(`/mes/shift/get?id=${id}`);
