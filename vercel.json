@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm build:tdesign",
+  "outputDirectory": "apps/web-tdesign/dist",
+  "installCommand": "pnpm install"
+}
