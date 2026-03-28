@@ -172,6 +172,11 @@ export const requestClient = createRequestClient(apiURL, {
   responseReturn: 'data',
 });
 
+// 移动端 API 专用客户端，使用 /app-api 前缀
+export const appRequestClient = createRequestClient('/app-api', {
+  responseReturn: 'data',
+});
+
 export const baseRequestClient = new RequestClient({ baseURL: apiURL });
 baseRequestClient.addRequestInterceptor({
   fulfilled: (config) => {

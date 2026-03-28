@@ -1,4 +1,4 @@
-import { requestClient } from '#/api/request';
+import { appRequestClient } from '#/api/request';
 
 export namespace MesMobileApi {
   /** 扫码解析请求 */
@@ -114,35 +114,35 @@ export namespace MesMobileApi {
 
 /** 扫码解析 */
 export function scanCode(data: MesMobileApi.ScanRequest) {
-  return requestClient.post<MesMobileApi.ScanResult>(
-    '/app-api/mes/operation/scan',
+  return appRequestClient.post<MesMobileApi.ScanResult>(
+    '/mes/operation/scan',
     data,
   );
 }
 
 /** 开始作业 */
 export function startOperation(data: MesMobileApi.StartRequest) {
-  return requestClient.post<number>('/app-api/mes/operation/start', data);
+  return appRequestClient.post<number>('/mes/operation/start', data);
 }
 
 /** 完成作业 */
 export function completeOperation(data: MesMobileApi.CompleteRequest) {
-  return requestClient.put('/app-api/mes/operation/complete', data);
+  return appRequestClient.put('/mes/operation/complete', data);
 }
 
 /** 绑定关键件 */
 export function bindKeyPart(data: MesMobileApi.BindPartRequest) {
-  return requestClient.post<number>('/app-api/mes/operation/bind-part', data);
+  return appRequestClient.post<number>('/mes/operation/bind-part', data);
 }
 
 /** 异常上报 */
 export function reportException(data: MesMobileApi.ExceptionReportRequest) {
-  return requestClient.post('/app-api/mes/exception/report', data);
+  return appRequestClient.post('/mes/exception/report', data);
 }
 
 /** 获取任务列表 */
 export function getTaskList(workstationId: number) {
-  return requestClient.get<MesMobileApi.TaskInfo[]>(
-    `/app-api/mes/task/list?workstationId=${workstationId}`,
+  return appRequestClient.get<MesMobileApi.TaskInfo[]>(
+    `/mes/task/list?workstationId=${workstationId}`,
   );
 }
