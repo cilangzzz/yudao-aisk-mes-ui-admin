@@ -44,6 +44,7 @@ export namespace MesOperationApi {
     productName: string;
     status: number;
     statusName: string;
+    operations?: OperationProgress[];
   }
 
   /** 物料信息 */

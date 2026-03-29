@@ -52,11 +52,17 @@ async function handleDelete(row: MesRoutingApi.Operation) {
 
 /** 获取表格数据 */
 function getData(): MesRoutingApi.Operation[] {
-  const data = gridApi.grid.getData() as MesRoutingApi.Operation[];
+  // 使用 getTableData().fullData 获取所有数据（包括新增未提交的记录）
+  const tableData = gridApi.grid.getTableData();
+  const data = tableData.fullData as MesRoutingApi.Operation[];
   const removeRecords = gridApi.grid.getRemoveRecords() as MesRoutingApi.Operation[];
-  return data.filter(
-    (row) => !removeRecords.some((removed) => removed.id === row.id),
-  );
+  return data
+    .filter((row) => !removeRecords.some((removed) => removed.id === row.id))
+    .map((row) => {
+      // 过滤掉临时 id（新增记录的临时 id 是字符串，如 "row_xxx"）
+      const id = typeof row.id === 'number' ? row.id : undefined;
+      return { ...row, id };
+    });
 }
 
 /** 加载表格数据 */
